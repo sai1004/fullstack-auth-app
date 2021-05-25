@@ -35,14 +35,11 @@ export class AuthService {
             let profileObj: Profile = await this.profileDao.findOne(query);
 
             if (profileObj != null) {
-                responseData.profile = {};
-                responseData.profile.id = profileObj.id;
-                responseData.name = profileObj.name;
-                responseData.email = profileObj.email;
-                responseData.mobile = profileObj.mobile;
                 responseData.identity = {};
-                responseData.identity = responseData.profile;
-                delete responseData.profile;
+                responseData.identity.id = profileObj.id;
+                responseData.identity.name = profileObj.name;
+                responseData.identity.email = profileObj.email;
+                responseData.identity.mobile = profileObj.mobile;
 
                 responseData.access_token = this.generateEncodeJWT(responseData);
             } else {
