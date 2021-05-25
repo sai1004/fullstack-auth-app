@@ -16,7 +16,7 @@ export class ProfileService {
         try {
             let isValid = await this.validateProfile(item);
             if (isValid == true) {
-                item.password = this.HashSync(item.password);
+                item.password = App.HashSync(item.password);
                 item.token = "dksjhdkfhsdfkjhsldjkfhskdjfhsd";
                 let newProfile: any = await this.profileDao.save(item);
                 let returnData = {

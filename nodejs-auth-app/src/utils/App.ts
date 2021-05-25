@@ -45,6 +45,14 @@ export class App {
         return str.toUpperCase();
     }
 
+    public static HashSync(data: string) {
+        return hashSync(data, 8);
+    }
+
+    public static HashCompareSync(param1: string, param2: string) {
+        return compareSync(param1, param2);
+    }
+
     public static EncodeJWT(data: any) {
         return jwt.sign(data, Config.token, { expiresIn: "24h" });
     }

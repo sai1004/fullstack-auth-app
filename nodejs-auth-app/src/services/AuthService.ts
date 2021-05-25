@@ -1,8 +1,7 @@
 import { Profile } from "../entities/Profile";
 import { ProfileDAO } from "../daos/ProfileDAO";
 import { ProfileService } from "./ProfileService";
-import * as jwt from "jsonwebtoken";
-import * as Config from "../config/config";
+import { App } from "../utils/App";
 
 export class AuthService {
     private profileDao: ProfileDAO;
@@ -41,7 +40,7 @@ export class AuthService {
                 responseData.identity.email = profileObj.email;
                 responseData.identity.mobile = profileObj.mobile;
 
-                responseData.access_token = this.generateEncodeJWT(responseData);
+                responseData.access_token = App.EncodeJWT(responseData);
             } else {
                 throw { message: " Profile Not Found " };
             }
@@ -49,9 +48,5 @@ export class AuthService {
         } catch (error) {
             throw error;
         }
-    }
-
-    generateEncodeJWT(data: any) {
-        return jwt.sign(data, Config.token, { expiresIn: "24h" });
     }
 }
