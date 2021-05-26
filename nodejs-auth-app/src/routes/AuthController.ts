@@ -20,7 +20,7 @@ export class AuthController {
                 } else {
                     throw { message: "Invalid Data" };
                 }
-                res.send({ status: 1, data: result });
+                res.status(200).send({ status: 1, data: result });
             } catch (error) {
                 res.send({ status: 0, error: error });
             }
@@ -33,12 +33,17 @@ export class AuthController {
 
                 if (reqData) {
                     result = await this.authService.signin(reqData);
+
+                    if (result.access_token) {
+                        res.status(200).send(result);
+                    } else {
+                        res.status(401).send({ status: 0, message: "Invalid Credentials" });
+                    }
                 } else {
-                    throw { message: "Invalid Data" };
+                    res.status(401).send({ status: 0, message: "Invalid Data" });
                 }
-                res.send(result);
             } catch (error) {
-                res.send({ status: 0, error: error });
+                res.send({ status: 0, error: error.message });
             }
         });
 

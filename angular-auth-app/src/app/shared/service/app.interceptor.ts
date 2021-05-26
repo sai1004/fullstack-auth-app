@@ -16,36 +16,22 @@ import { ApexService } from './apex.service';
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-    CONTENT_TYPE: string = 'application/json; charset=utf-8; multipart/form-data';
+    CONTENT_TYPE: string = 'application/json; charset=utf-8';
 
     constructor(private appSerivce: AppService, private _apexService: ApexService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (
-            request.url != Props.API_END_POINT + '/auth/authenticate' &&
-            request.url != Props.API_END_POINT + '/auth/refresh'
-        ) {
-            if (request.url.includes('upload')) {
-                request = request.clone({
-                    setHeaders: {
-                        // 'Content-Type': this.CONTENT_TYPE,
-                        Authorization: 'Bearer ' + this.appSerivce.getJWT(),
-                    },
-                });
-            } else {
-                request = request.clone({
-                    setHeaders: {
-                        'Content-Type': this.CONTENT_TYPE,
-                        Authorization: 'Bearer ' + this.appSerivce.getJWT(),
-                    },
-                });
-            }
-        }
+        request = request.clone({
+            setHeaders: {
+                'Content-Type': this.CONTENT_TYPE,
+                // Authorization: 'Bearer ' + this.appSerivce.getJWT(),
+            },
+        });
 
         const started = Date.now();
         let ok: string;
 
-        // this._apexService.showLoader(true);
+        this._apexService.showLoader(true);
         return next.handle(request).pipe(
             tap(
                 /* ----------> Success Responeses <---------- */
@@ -59,6 +45,8 @@ export class AppInterceptor implements HttpInterceptor {
             delay(10),
             // Log when response observable either completes or errors
             finalize(() => {
+                this._apexService.showLoader(false);
+
                 const elapsed = Date.now() - started;
                 const msg = `${request.method} "${request.urlWithParams}" ${ok} in ${elapsed} ms.`;
                 console.log(msg);

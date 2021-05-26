@@ -21,12 +21,8 @@ a {
     width: 100% !important;
 }
 
-.custom__formfield .mat-form-field-infix {
-    border-top: none !important;
-}
-
-.custom__formfield .mat-form-field-wrapper {
-    padding-bottom: 0 !important;
+.input__field {
+    padding: 0px 0px 10px 0px;
 }
 
 mat-toolbar {
@@ -42,7 +38,9 @@ mat-toolbar {
     background-color: green !important;
     color: white;
 }
-
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #6d9cba !important;
+}
 .mat-simple-snackbar-action {
     color: white !important;
 }
@@ -66,10 +64,6 @@ mat-toolbar {
 
 .grid-container {
     margin: 20px;
-}
-
-.input__field {
-    padding: 10px 0px 10px 0px;
 }
 
 .gap {
@@ -111,10 +105,6 @@ section {
     }
 }
 
-.appoint__list .mat-list-base .mat-list-item .mat-list-item-content {
-    padding: 0 !important;
-}
-
 /* Let's get this party started */
 ::-webkit-scrollbar {
     width: 8px;
@@ -135,53 +125,4 @@ section {
 
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #0baba1 !important;
-}
-label.star {
-    color: #444 !important;
-    font-size: 20px !important;
-    padding: 2px !important;
-    transition: all 0.2s !important;
-    float: none !important;
-}
-
-.rating form {
-    display: inline-flex !important;
-    flex-direction: row-reverse !important;
-}
-.facilitySearch .mat-form-field-wrapper {
-    padding-bottom: 0 !important;
-}
-
-.mat-calendar-body-cell,
-.mat-calendar-body-label {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-}
-
-/* ----- video classes ----*/
-
-.publishBefore {
-    width: 100% !important;
-    height: 93vh !important;
-    position: absolute;
-}
-
-.publishAfter {
-    cursor: move;
-    position: absolute;
-    left: 0%;
-    width: 350px !important;
-    height: 400px !important;
-    top: 64%;
-    z-index: 9999 !important;
-}
-
-.publishBefore .OT_widget-container {
-    height: 100% !important;
-}
-.publishAfter .OT_widget-container {
-    height: 40% !important;
-}
-.OT_video-poster {
-    display: none !important;
 }

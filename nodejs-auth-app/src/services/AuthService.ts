@@ -64,7 +64,7 @@ export class AuthService {
 
                 responseData.access_token = App.EncodeJWT(responseData);
             } else {
-                throw { message: " Profile Not Found " };
+                return { message: " Profile Not Found " };
             }
             return responseData;
         } catch (error) {

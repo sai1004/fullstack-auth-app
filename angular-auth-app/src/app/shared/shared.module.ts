@@ -11,8 +11,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProgressBarComponent } from './component/progress-bar.component';
 import { ConfirmDialogComponent } from './component/confirm-dialog.component';
 import { AppService } from './service/app.service';
-import { NumericDirective, NumericsDirective } from './utils/directives';
-import { FilterPipe, niceDateFormatPipe, SortPipe } from './utils/custom.pipe';
 import { PUCComponent } from './component/puc.component';
 
 @NgModule({

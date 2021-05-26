@@ -1,1 +1,52 @@
-<p>signin-page works!</p>
+<section class="bg__image">
+    <div class="auth__layout">
+        <mat-card class="auth__card dark-theme">
+            <div class="logo__layout">
+                <div Align="center">
+                    <h1>LOGO</h1>
+                    <h5>Login Into Your Account</h5>
+                </div>
+            </div>
+            <div class="auth__inputs">
+                <form #signinForm="ngForm" novalidate autocomplete="off">
+                    <app-auth [(auth)]="auth" type="signin"> </app-auth>
+                    <div class="input__field">
+                        <div fxLayout="row" fxLayoutAlign="space-between center">
+                            <div>
+                                <mat-checkbox class="example-margin" name="rememberMe" [(ngModel)]="auth.rememberMe"
+                                    >Remember me</mat-checkbox
+                                >
+                            </div>
+                            <div><span> Forgot Password? </span></div>
+                        </div>
+                    </div>
+
+                    <div style="width: 100%; padding: 10px 0px 10px 0px">
+                        <div fxFlex="100">
+                            <button
+                                mat-raised-button
+                                color="accent"
+                                style="width: 100%"
+                                [disabled]="!signinForm.valid"
+                                (click)="onLogin()"
+                            >
+                                LOGIN
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="signup">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                        <h4>Don't have an Account?</h4>
+                    </div>
+                    <div>
+                        <button mat-button>SIGNUP</button>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</section>
