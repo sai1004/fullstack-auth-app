@@ -26,6 +26,28 @@ export class AuthService {
         }
     }
 
+    async signin(reqData: any) {
+        try {
+            let query = { email: reqData.email };
+            let profileObj: Profile = await this.profileDao.findOne(query);
+            let isAuthValid: any = false;
+
+            if (profileObj == null || reqData.password == null) {
+                return { message: "Invalid Credentials" };
+            } else {
+                isAuthValid = App.HashCompareSync(reqData.password, profileObj.password);
+
+                if (isAuthValid) {
+                    return this.reteriveProfileDetails(profileObj.id);
+                } else {
+                    return { message: "Invalid Credentials" };
+                }
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async reteriveProfileDetails(userId: any) {
         try {
             let responseData: any = {};

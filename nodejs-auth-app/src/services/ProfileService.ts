@@ -51,12 +51,12 @@ export class ProfileService {
         }
 
         // get email if exists in array
-        let profiles: any = await this.profileDao.search({ email: item.email });
+        let oldEmails: any = await this.profileDao.search({ email: item.email });
 
         // if id not exists
         if (!item.id) {
             // check profile
-            if (profiles.length > 0) {
+            if (oldEmails.length > 0) {
                 returnVal = "Email";
             } else {
                 // genrate new id and profile if there is no old record associated with current email

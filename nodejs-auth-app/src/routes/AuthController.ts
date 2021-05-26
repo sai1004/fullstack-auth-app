@@ -26,6 +26,22 @@ export class AuthController {
             }
         });
 
+        this.router.post("/signin", async (req: any, res: any) => {
+            try {
+                let reqData: any = req.body;
+                let result: any = null;
+
+                if (reqData) {
+                    result = await this.authService.signin(reqData);
+                } else {
+                    throw { message: "Invalid Data" };
+                }
+                res.send(result);
+            } catch (error) {
+                res.send({ status: 0, error: error });
+            }
+        });
+
         return this.router;
     }
 }
