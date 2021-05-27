@@ -11,7 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
         <div class="top-gap">
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <div>
-                    <button mat-raised-button color="accent" class="save" (click)="save(true)">Confirm</button>
+                    <button mat-raised-button color="primary" class="save" (click)="save(true)">Confirm</button>
                 </div>
                 <div>
                     <button mat-raised-button color="warn" class="cancel" (click)="close(false)">Cancel</button>

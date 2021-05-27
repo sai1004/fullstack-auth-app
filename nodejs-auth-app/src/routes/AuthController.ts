@@ -17,12 +17,16 @@ export class AuthController {
 
                 if (reqData) {
                     result = await this.authService.signup(reqData.data);
+                    if (result.access_token) {
+                        res.status(200).send(result);
+                    } else {
+                        res.status(401).send({ status: 0, message: "Invalid Credentials" });
+                    }
                 } else {
                     throw { message: "Invalid Data" };
                 }
-                res.status(200).send({ status: 1, data: result });
             } catch (error) {
-                res.send({ status: 0, error: error });
+                res.status(403).send({ status: 0, error: error.message });
             }
         });
 

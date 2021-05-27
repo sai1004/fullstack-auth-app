@@ -4,7 +4,7 @@
             <div class="logo__layout">
                 <div Align="center">
                     <h1>LOGO</h1>
-                    <h5>Login Into Your Account</h5>
+                    <h4>Signin Into Your Account</h4>
                 </div>
             </div>
             <div class="auth__inputs">
@@ -30,7 +30,7 @@
                                 [disabled]="!signinForm.valid"
                                 (click)="onLogin()"
                             >
-                                LOGIN
+                                SIGNIN
                             </button>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <h4>Don't have an Account?</h4>
                     </div>
                     <div>
-                        <button mat-button>SIGNUP</button>
+                        <button mat-button routerLink="/auth/signup">SIGNUP</button>
                     </div>
                 </div>
             </div>

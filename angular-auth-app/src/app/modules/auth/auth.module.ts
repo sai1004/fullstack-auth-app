@@ -8,7 +8,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { AuthService } from './auth.service';
 
-const routes: Routes = [{ path: 'signin', component: SigninPageComponent }];
+const routes: Routes = [
+    { path: 'signin', component: SigninPageComponent },
+    { path: 'signup', component: SignupPageComponent },
+];
 
 @NgModule({
     declarations: [SigninPageComponent, SignupPageComponent],

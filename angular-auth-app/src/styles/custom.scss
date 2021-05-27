@@ -38,11 +38,13 @@ mat-toolbar {
     background-color: green !important;
     color: white;
 }
-.mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: #6d9cba !important;
-}
+
 .mat-simple-snackbar-action {
     color: white !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #6d9cba !important;
 }
 
 .card {
@@ -71,39 +73,9 @@ mat-toolbar {
     padding-right: 10px;
 }
 
-.mat-button-toggle {
-    width: 50%;
-}
-
-.mat-button-toggle-checked {
-    background-color: var(--primary-bgColor) !important;
-    color: #ffffff !important;
-}
-
-.mat-button-toggle-label-content {
-    line-height: 40px !important;
-}
-
-.mat-button-toggle-appearance-standard {
-    background-color: #f3f3f3;
-    color: #151522;
-}
-
-.mat-button-toggle-group-appearance-standard {
-    width: 100%;
-    border: none;
-    border-radius: 0px !important;
-}
-
-section {
-    margin-bottom: 100px;
-}
-
-@media (max-width: 560px) {
-    .cdk-overlay-pane {
-        max-width: 90vw !important;
-    }
-}
+// section {
+//     margin-bottom: 100px;
+// }
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
@@ -119,10 +91,10 @@ section {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     // -webkit-border-radius: 10px;
-    background: #0baba1 !important;
+    background: #3949ab !important;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: #0baba1 !important;
+    background: #3949ab !important;
 }

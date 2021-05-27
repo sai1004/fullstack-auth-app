@@ -42,3 +42,86 @@
         </mat-form-field>
     </div>
 </ng-template>
+
+<!-- ----------------------------- Signup ----------------------------- -->
+
+<ng-template [ngIf]="type == 'signup' && auth">
+    <div class="input__field">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <mat-icon matSuffix>mail</mat-icon>
+            <input
+                matInput
+                placeholder="Enter your name"
+                [(ngModel)]="auth.name"
+                name="name"
+                #auth_name="ngModel"
+                minlength="3"
+                maxlength="30"
+                required
+            />
+            <mat-hint color="warn" *ngIf="auth_name.touched"> Name Required </mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="input__field">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <mat-icon matSuffix>mail</mat-icon>
+            <input
+                matInput
+                placeholder="Enter your email"
+                [(ngModel)]="auth.email"
+                name="email"
+                #auth_email="ngModel"
+                minlength="3"
+                maxlength="30"
+                required
+            />
+            <mat-hint color="warn" *ngIf="auth_email.touched"> Email Required </mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="input__field">
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+                matInput
+                placeholder="Enter your password"
+                [type]="hide ? 'password' : 'text'"
+                name="auth_password"
+                [(ngModel)]="auth.password"
+                #auth_password="ngModel"
+                title="Must contain at least one number and one 
+                uppercase and lowercase letter, and at least 8 or more characters"
+                minlength="3"
+                maxlength="16"
+                required
+            />
+            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer">{{
+                hide ? "lock" : "lock_open"
+            }}</mat-icon>
+            <mat-hint>
+                <mat-hint color="warn" *ngIf="auth_password.touched"> Password Required </mat-hint>
+            </mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="input__field">
+        <mat-form-field>
+            <mat-label>Mobile</mat-label>
+            <mat-icon matSuffix>phone</mat-icon>
+            <input
+                matInput
+                placeholder="Enter your mobile"
+                [(ngModel)]="auth.mobile"
+                name="mobile"
+                #auth_mobile="ngModel"
+                minlength="3"
+                maxlength="30"
+                required
+            />
+            <mat-hint color="warn" *ngIf="auth_mobile.touched"> Mobile Required </mat-hint>
+        </mat-form-field>
+    </div>
+</ng-template>

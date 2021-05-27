@@ -20,10 +20,10 @@ export class SigninPageComponent implements OnInit {
     onLogin() {
         this._apexService.showLoader(true);
         this._authService.logIn(this.auth).subscribe((response: any) => {
-            console.log('response', response);
+            if (response.access_token) {
+                console.log('response', response);
 
-            if (response) {
-                this._authService.saveUser(response, this.auth);
+                this._authService.saveUser(response);
             }
         });
     }

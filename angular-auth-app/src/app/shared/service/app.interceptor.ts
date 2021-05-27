@@ -24,7 +24,7 @@ export class AppInterceptor implements HttpInterceptor {
         request = request.clone({
             setHeaders: {
                 'Content-Type': this.CONTENT_TYPE,
-                // Authorization: 'Bearer ' + this.appSerivce.getJWT(),
+                Authorization: `JWT ${this.appSerivce.getJWT()}`,
             },
         });
 

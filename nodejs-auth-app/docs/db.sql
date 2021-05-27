@@ -17,3 +17,18 @@ create table profile (
     updated_on timestamp not null default now()
     
 );
+
+
+
+
+
+
+create database hrms_db;
+
+use hrms_db;
+
+create table profile (
+
+);
+
+

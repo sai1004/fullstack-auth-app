@@ -1,0 +1,22 @@
+mat-sidenav {
+    width: 250px;
+    height: 93%;
+}
+
+mat-sidenav-container,
+mat-sidenav-content {
+    height: 100vh;
+}
+
+mat-toolbar {
+    position: sticky;
+    z-index: 999;
+    top: 0px;
+}
+
+.logo {
+    height: 34px !important;
+    object-fit: contain;
+    padding-left: 20px;
+    outline: none;
+}

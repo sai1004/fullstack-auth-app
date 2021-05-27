@@ -7,7 +7,7 @@ import { ConfirmDialogComponent } from '../component/confirm-dialog.component';
 
 @Injectable()
 export class AppService {
-    private pid: string = 'web';
+    private pid: string = 'WEB';
 
     constructor(
         private router: Router,

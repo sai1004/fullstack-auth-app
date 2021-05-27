@@ -1,1 +1,42 @@
-<p>signup-page works!</p>
+<section class="bg__image">
+    <div class="auth__layout">
+        <mat-card class="auth__card dark-theme">
+            <div class="logo__layout">
+                <div Align="center">
+                    <h1>LOGO</h1>
+                    <h4>Signup For New Account</h4>
+                </div>
+            </div>
+            <div class="auth__inputs">
+                <form #signupForm="ngForm" novalidate autocomplete="off">
+                    <app-auth [(auth)]="auth" type="signup"> </app-auth>
+
+                    <div style="width: 100%; padding: 10px 0px 10px 0px">
+                        <div fxFlex="100">
+                            <button
+                                mat-raised-button
+                                color="accent"
+                                style="width: 100%"
+                                [disabled]="!signupForm.valid"
+                                (click)="onSignUp()"
+                            >
+                                SIGNUP
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="signup">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                        <h4>Already have an Account?</h4>
+                    </div>
+                    <div>
+                        <button mat-button routerLink="/auth/signin">SIGNIN</button>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</section>
