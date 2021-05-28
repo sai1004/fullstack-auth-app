@@ -7,9 +7,10 @@ const app = express();
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const dotenv = require("dotenv");
+const rateLimiter = require("express-rate-limit");
 const cors = require("cors");
 dotenv.config();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const runServer = async () => {
     try {
@@ -26,24 +27,18 @@ const runServer = async () => {
             app.use(logger("common"));
             app.use(cors());
 
-            var whitelist = ["http://127.0.0.1:4200"];
-
-            var corsOptionsDelegate = function (req: any, callback: any) {
-                var corsOptions;
-                if (whitelist.indexOf(req.header("Origin")) !== -1) {
-                    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-                } else {
-                    corsOptions = { origin: false }; // disable CORS for this request
-                }
-                callback(null, corsOptions); // callback expects two parameters: error and options
-            };
+            const ratelimit = rateLimiter({
+                windowsMs: 5 * 60 * 100,
+                max: 5, // 5 times allowed
+                message: { status: 0, message: "Too many requests, please try again later." },
+            });
 
             /* ''''''' App Routes ''''''''' */
             app.get("/api", (req: any, res: any) => {
                 res.json({ message: " Hello App Works!! " });
             });
 
-            app.use("/api/auth", authRoutes.getRouter());
+            app.use("/api/auth", ratelimit, authRoutes.getRouter());
 
             app.listen(port, (err: any) => {
                 if (err) throw err;

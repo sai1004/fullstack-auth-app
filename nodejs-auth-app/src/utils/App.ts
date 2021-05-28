@@ -1,6 +1,5 @@
 import { hashSync, compareSync } from "bcryptjs";
 import * as jwt from "jsonwebtoken";
-
 import * as Config from "../config/config";
 
 export class App {
