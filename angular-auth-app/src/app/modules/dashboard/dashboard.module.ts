@@ -11,11 +11,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ContactsPageComponent } from './contacts-page/contacts-page.component';
 
-const routes: Routes = [{ path: 'dashboard', component: DashboardPageComponent }];
-
+const routes: Routes = [
+    { path: 'dashboard', component: DashboardPageComponent },
+    { path: 'contacts', component: ContactsPageComponent },
+];
 @NgModule({
-    declarations: [DashboardPageComponent],
+    declarations: [DashboardPageComponent, ContactsPageComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),

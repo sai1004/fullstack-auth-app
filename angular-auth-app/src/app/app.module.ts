@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ComponentsModule } from './components/components.module';
 import { ConfirmDialogComponent } from './shared/component/confirm-dialog.component';
+import { LoggedInAuthGuard } from './shared/service/login-auth-guard.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { ConfirmDialogComponent } from './shared/component/confirm-dialog.compon
         FlexLayoutModule,
         ComponentsModule,
     ],
-    providers: [],
+    providers: [LoggedInAuthGuard],
     entryComponents: [ConfirmDialogComponent],
     bootstrap: [AppComponent],
 })

@@ -1,6 +1,7 @@
 import { createConnection } from "typeorm";
 import * as Config from "./config/config";
 import { AuthController } from "./routes/AuthController";
+import { ContactsController } from "../src/routes/ContactsController";
 
 const express = require("express");
 const app = express();
@@ -20,6 +21,7 @@ const runServer = async () => {
             console.log(`____________ DB Connected ____________`);
 
             const authRoutes = new AuthController();
+            const contactsRoutes = new ContactsController();
 
             app.use(express.urlencoded({ extended: false }));
             app.use(bodyParser.json());
@@ -39,6 +41,8 @@ const runServer = async () => {
             });
 
             app.use("/api/auth", ratelimit, authRoutes.getRouter());
+
+            app.use("/api/contacts", contactsRoutes.getRouter());
 
             app.listen(port, (err: any) => {
                 if (err) throw err;

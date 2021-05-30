@@ -1,15 +1,19 @@
 mat-sidenav {
     width: 250px;
-    height: 93%;
 }
 
 mat-sidenav-container,
-mat-sidenav-content {
+mat-sidenav-content,
+mat-sidenav {
     height: 100vh;
 }
 
+.mat-nav-list {
+    margin-top: 60px;
+}
+
 mat-toolbar {
-    position: sticky;
+    position: fixed;
     z-index: 999;
     top: 0px;
 }
@@ -19,4 +23,9 @@ mat-toolbar {
     object-fit: contain;
     padding-left: 20px;
     outline: none;
+}
+
+.main-content {
+    overflow-y: auto;
+    height: 100vh;
 }
