@@ -103,4 +103,16 @@ export class App {
             return false;
         }
     }
+
+    public static verifyToken(req: any, res: any, next: any) {
+        let token = req.headers.authorization;
+
+        let isValidId: any = App.DecodeJWT(token);
+
+        if (isValidId.identity) {
+            next();
+        } else {
+            res.status(403).send({ status: 0, message: "Token is not valid" });
+        }
+    }
 }

@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { Contacts } from "../entities/Contacts";
 import { ContactsService } from "../services/ContactsService";
+import { App } from "../utils/App";
 
 export class ContactsController {
     private router: Router = Router();
     private service = new ContactsService();
 
     getRouter(): Router {
-        this.router.put("/create", async (req: any, res: any) => {
+        this.router.put("/create", App.verifyToken, async (req: any, res: any) => {
             try {
                 let reqData = req.body ? req.body : {};
                 let result = null;
@@ -20,7 +21,7 @@ export class ContactsController {
             }
         });
 
-        this.router.get("/list", async (req: any, res: any) => {
+        this.router.get("/list", App.verifyToken, async (req: any, res: any) => {
             try {
                 let reqData: any = req.query ? req.query : {};
 
@@ -34,7 +35,7 @@ export class ContactsController {
             }
         });
 
-        this.router.get("/:id", async (req: any, res: any) => {
+        this.router.get("/:id", App.verifyToken, async (req: any, res: any) => {
             try {
                 let reqData: any;
                 let result: Contacts = null;
@@ -44,7 +45,7 @@ export class ContactsController {
                 if (reqData) {
                     result = await this.service.findOne(reqData);
                 } else {
-                    throw new Error("Somthing went worng please try againg");
+                    throw new Error("Somthing went worng please try again");
                 }
                 res.send({ status: 1, data: result });
             } catch (error) {
@@ -52,7 +53,7 @@ export class ContactsController {
             }
         });
 
-        this.router.delete("/:id", async (req: any, res: any) => {
+        this.router.delete("/:id", App.verifyToken, async (req: any, res: any) => {
             try {
                 let reqData: any;
                 let result = null;
@@ -60,7 +61,7 @@ export class ContactsController {
                 if (reqData) {
                     result = await this.service.delete(reqData);
                 } else {
-                    throw new Error("Somthing went worng please try againg");
+                    throw new Error("Somthing went worng please try again");
                 }
                 res.send({ status: 1, data: result });
             } catch (error) {
