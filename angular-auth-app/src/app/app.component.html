@@ -24,8 +24,13 @@
         [mode]="screenWidth > 840 ? 'side' : 'over'"
     >
         <mat-nav-list>
-            <mat-list-item> DASHBOARD </mat-list-item>
+            <mat-list-item routerLink="/dashboard/dashboard" routerLinkActive="router-link-active">
+                DASHBOARD
+            </mat-list-item>
             <mat-divider></mat-divider>
+            <mat-list-item routerLink="/dashboard/contacts" routerLinkActive="router-link-active">
+                CONTACTS
+            </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
 
