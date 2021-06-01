@@ -14,7 +14,14 @@ const cors = require("cors");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 dotenv.config();
+
 const port = process.env.PORT || 5000;
+
+const ratelimit = rateLimiter({
+    windowsMs: 5 * 60 * 100,
+    max: 5, // 5 times allowed
+    message: { status: 0, message: "Too many requests, please try again later." },
+});
 
 const runServer = async () => {
     try {
@@ -30,19 +37,17 @@ const runServer = async () => {
             app.use(bodyParser.json());
             app.use(bodyParser.urlencoded({ extended: false }));
             app.use(logger("common"));
+
             // Set security headers
             app.use(helmet());
+
             // Prevent XSS attacks
             app.use(xss());
             app.use(cors());
 
-            const ratelimit = rateLimiter({
-                windowsMs: 5 * 60 * 100,
-                max: 5, // 5 times allowed
-                message: { status: 0, message: "Too many requests, please try again later." },
-            });
             // Prevent http param pollution
             app.use(hpp());
+
             /* ''''''' App Routes ''''''''' */
             app.get("/api", (req: any, res: any) => {
                 res.json({ message: " Hello App Works!! " });
