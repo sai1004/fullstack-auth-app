@@ -33,6 +33,8 @@ const runServer = async () => {
             const authRoutes = new AuthController();
             const contactsRoutes = new ContactsController();
 
+            // Prevent XSS attacks
+            app.use(xss());
             app.use(express.urlencoded({ extended: false }));
             app.use(bodyParser.json());
             app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,8 +43,6 @@ const runServer = async () => {
             // Set security headers
             app.use(helmet());
 
-            // Prevent XSS attacks
-            app.use(xss());
             app.use(cors());
 
             // Prevent http param pollution

@@ -5,6 +5,39 @@
 
 @include mat-core();
 
+// $mat-pine-green: (
+//     50: #e3eeec,
+//     100: #b8d4d0,
+//     200: #89b7b1,
+//     300: #5a9a92,
+//     400: #36857a,
+//     500: #136f63,
+//     600: #11675b,
+//     700: #0e5c51,
+//     800: #0b5247,
+//     900: #064035,
+//     A100: #76ffe2,
+//     A200: #43ffd7,
+//     A400: #10ffcc,
+//     A700: #00f6c1,
+//     contrast: (
+//         50: $light-primary-text,
+//         100: $light-primary-text,
+//         200: $light-primary-text,
+//         300: $light-primary-text,
+//         400: $light-primary-text,
+//         500: $light-primary-text,
+//         600: $light-primary-text,
+//         700: $light-primary-text,
+//         800: $light-primary-text,
+//         900: $light-primary-text,
+//         A100: $light-primary-text,
+//         A200: $light-primary-text,
+//         A400: $light-primary-text,
+//         A700: $light-primary-text,
+//     ),
+// );
+
 $primary: mat-palette($mat-indigo, 600, 500, 900);
 $accent: mat-palette($mat-pink, 700, 500, 900);
 $warn: mat-palette($mat-red, 800, 100, 900);

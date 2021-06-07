@@ -35,10 +35,6 @@ export class ProfileService {
         }
     }
 
-    HashSync(data: string) {
-        return hashSync(data, 8);
-    }
-
     async validateProfile(item: Profile) {
         let returnVal: any;
 
