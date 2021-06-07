@@ -40,3 +40,14 @@
 button {
     background-color: #6d9cba !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .auth__layout {
+        height: 430px;
+        width: 350px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
