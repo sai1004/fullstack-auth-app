@@ -1,6 +1,10 @@
 <section class="mg__top-page">
     <div class="grid-container">
-        <div class="mat-elevation-z8">
+        <div Align="center" *ngIf="dataSource.data.length <= 0">
+            <h1>No Data</h1>
+        </div>
+
+        <div class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
             <table mat-table [dataSource]="dataSource">
                 <!-- Position Column -->
                 <ng-container matColumnDef="index">

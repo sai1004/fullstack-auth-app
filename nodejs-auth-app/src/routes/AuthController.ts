@@ -26,7 +26,7 @@ export class AuthController {
                     throw { message: "Invalid Data" };
                 }
             } catch (error) {
-                res.status(403).send({ status: 0, error: error.message });
+                res.status(403).send({ status: 0, error: error });
             }
         });
 
