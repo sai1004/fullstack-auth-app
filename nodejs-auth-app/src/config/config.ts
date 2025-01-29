@@ -6,7 +6,7 @@ export let dbConfig: any = {
     host: "localhost",
     port: 3306,
     username: "root",
-    password: "chroot",
+    password: "root",
     database: "auth_app_db",
     logging: true,
     synchronize: false,
